@@ -1,0 +1,25 @@
+.modal-backdrop {
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal {
+  z-index: 1;
+}
+
+.contact-card {
+  list-style: none;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.contact-card img {
+  border-radius: 10px;
+  margin-right: 25px;
+}
