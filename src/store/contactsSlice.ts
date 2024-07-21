@@ -37,7 +37,7 @@ export const fetchContacts = createAsyncThunk<Contact[]>('contacts/fetchContacts
 });
 
 export const addContact = createAsyncThunk<Contact, Contact>('contacts/addContact', async (newContact) => {
-  const {data: contact} = await axiosApi.post<Contact>(`contacts.json`, newContact);
+  const {data: contact} = await axiosApi.post<Contact>(`/contacts.json`, newContact);
   return contact;
 });
 
@@ -101,7 +101,7 @@ export const contactsSlice = createSlice({
       .addCase(editContact.rejected, (state: ContactsState) => {
         state.editLoading = false;
         state.error = true;
-      })
+      });
 
     builder
       .addCase(deleteContact.pending, (state: ContactsState) => {
@@ -119,6 +119,7 @@ export const contactsSlice = createSlice({
   },
 });
 
+export const selectContacts = (state: RootState) => state.contacts.contacts;
 export const selectFetchContactsLoading = (state: RootState) => state.contacts.fetchLoading;
 export const selectAddContactLoading = (state: RootState) => state.contacts.addLoading;
 export const selectEditContactLoading = (state: RootState) => state.contacts.editLoading;
